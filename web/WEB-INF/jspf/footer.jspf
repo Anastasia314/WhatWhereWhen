@@ -1,0 +1,13 @@
+<section id="footer">
+    <ul class="icons">
+        <li><a href="https://twitter.com/tv_chgk" class="fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="https://facebook.com/chgktv/" class="fa-facebook"><span class="label">Facebook</span></a></li>
+        <li>
+            <a href="http://instagram.com/chto_gde_kogda" class="fa-instagram"><span class="label">Instagram</span></a>
+        </li>
+        <li><a href="http://www.youtube.com/user/igraTVru" class="fa-rss"><span class="label">Youtube</span></a></li>
+        <li><a href="http://chgk.tvigra.ru" class="fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+        Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+</section>

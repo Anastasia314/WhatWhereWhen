@@ -1,0 +1,79 @@
+<header id="header">
+    <h1><a href="${pageContext.request.contextPath}/controller?command=initialize_start_page">
+        <fmt:message key="nav.link.main_page"/></a>
+    </h1>
+    <nav class="links">
+        <ul>
+            <c:if test="${not empty sessionScope.user}">
+                <li><a href="${pageContext.request.contextPath}/controller?command=load_user_data">
+                    <fmt:message key="nav.link.personal_data"/></a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/controller?command=load_questions">
+                    <fmt:message key="nav.link.questions"/></a>
+                </li>
+            </c:if>
+            <c:if test="${sessionScope.user.admin == true}">
+                <li><a href="${pageContext.request.contextPath}/controller?command=load_admin_data">
+                    <fmt:message key="nav.link.administration"/></a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            <li class="select-wrapper">
+                <select name="locale" title="language" id="language-select">
+                    <option disabled selected>${not empty sessionScope.locale?sessionScope.locale:"ru"}</option>
+                    <option value="en"><fmt:message key="project.general.language.en"/></option>
+                    <option value="ru"><fmt:message key="project.general.language.ru"/></option>
+                </select>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu"><fmt:message key="nav.link.menu"/></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<section id="menu">
+    <section>
+        <ul class="links">
+            <c:if test="${not empty sessionScope.user}">
+                <c:if test="${not empty sessionScope.user.photo}">
+                    <img src="${pageContext.request.contextPath}/image?command=display" alt="" class="avatar-photo-small"/>
+                </c:if>
+                <li><a href="${pageContext.request.contextPath}/controller?command=load_user_data">
+                    <fmt:message key="nav.link.personal_data"/></a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/controller?command=load_questions">
+                    <fmt:message key="nav.link.questions"/></a>
+                </li>
+            </c:if>
+            <c:if test="${sessionScope.user.admin == true}">
+                <li><a href="${pageContext.request.contextPath}/controller?command=load_admin_data">
+                    <fmt:message key="nav.link.administration"/></a>
+                </li>
+            </c:if>
+        </ul>
+    </section>
+    <section>
+        <ul class="actions vertical">
+            <c:choose>
+                <c:when test="${not empty sessionScope.user}">
+                    <li>
+                        <form action="${pageContext.request.contextPath}/controller" method="post">
+                            <input type="hidden" name="command" value="sign_out">
+                            <input type="submit" class="button big fit" value=<fmt:message
+                                    key="nav.link.signout"/>>
+                        </form>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="${pageContext.request.contextPath}/jsp/general/login.jsp"
+                           class="button big fit"><fmt:message
+                            key="nav.link.login"/></a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </section>
+</section>
